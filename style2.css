@@ -1,0 +1,136 @@
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("picture/4.png");
+    background-size: cover;
+    overflow: hidden;
+    font-family: Prompt;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width:400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+}
+
+.login-header h1 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #f5f5f5;
+    text-align: center;
+    letter-spacing: 3px;
+}
+
+.for-item {
+    position: relative;
+}
+
+.for-item input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #f5f5f5;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #f5f5f5;
+    outline: none;
+    background: transparent;
+
+}
+
+.for-item label {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #f5f5f5;
+    pointer-events: none;
+    transition: all 0.5s;
+}
+
+.for-item input:focus ~ label{
+    top: -20px !important;
+    left: 0 !important;
+    color: #10eeeee4;
+    font-size: 13px !important;
+}
+
+.for-item input:focus{
+    border-bottom-color: #10eeeee4;
+}
+
+.btn{
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #10eeeee4;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: all 0.5s;
+    margin-right: 20px;
+    letter-spacing: 4px;
+    border: none;
+    background: #361959;
+    border-radius: 5px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    cursor:pointer;
+}
+
+.btn:hover{
+    background-color: #10eeeee4;
+    color: #f5f5f5;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #10eeeee4, 0 0 25px #10eeeee4, 0 0 50px #10eeeee4, 0 0 100px #10eeeee4;
+    border: none;
+}
+
+.login-form a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #10eeeee4;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: all 0.5s;
+    margin-right: 20px;
+    letter-spacing: 4px;
+}
+
+.login-form a:hover{
+    background-color: #10eeeee4;
+    color: #f5f5f5;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #10eeeee4, 0 0 25px #10eeeee4, 0 0 50px #10eeeee4, 0 0 100px #10eeeee4;
+    border: none;
+}
+
+p {
+    color: #f5f5f5;
+    margin: 20px;
+    margin-left: 10px;
+
+}
+
+.cross {
+    position: absolute;
+    top: 55px;
+    right: 75px;
+    width: 50px;
+    height: 50px;
+    border-radius: 25%;
+}

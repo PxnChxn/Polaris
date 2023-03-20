@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <a href="index.html">
+        <img src="picture/cross.png" class="cross">
+    </a>
+    <div class="container">
+        <div class="login-header">
+            <h1>Register</h1>
+        </div>
+        <form action="register_system.php" class="login-content" method="post">
+            <div class="login-form">
+                <div class="for-item">                    
+                    <input type="text" name="username" required>
+                    <label for="username">Enter username</label>
+                </div>
+                <div class="for-item">                    
+                    <input type="password" name="password" required>
+                    <label for="password">Enter password</label>
+                </div>
+                <div class="for-item">                    
+                    <input type="email" name="email" required>
+                    <label for="email">Enter email</label>
+                </div>
+                <div class="for-item">
+                    <input type="text" name="name" required>
+                    <label for="name">Enter name</label>
+                </div>
+                <button type="submit" class="btn" name="reg_user">Submit</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        document.getElementsByTagName("input").addEventListener("focus",()=>{
+            console.log(e);
+        });
+        
+    </script>
+</body>
+</html>
+</html>
