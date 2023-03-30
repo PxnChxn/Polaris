@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="css/loginStyle.css">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Mitr&display=swap");
+        h1,h2,h3,h4,h5,h6{
+            font-family:Mitr,Arial, Helvetica, sans-serif;
+        }
+        body{
+            font-family:Mitr,Arial, Helvetica, sans-serif;
+        }
+    </style>
+    <script src=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js "></script>
+    <link href=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css " rel="stylesheet">
+</head>
+<body>
+    <a href="index.html">
+        <img src="picture/cross.png" class="cross">
+    </a>
+    <div class="container">
+        <div class="login-header">
+            <h1>Login</h1>
+        </div>
+            <div class="login-form">
+                <div class="for-item">
+                    <input type="text" name="username" id="username">
+                    <label for="username">Enter username</label>
+                </div>
+                <div class="for-item">
+                    <input type="password" name="password" id="password">
+                    <label for="password">Enter password</label>
+                </div>
+                <button type="submit" class="btn" id="login_user">Login</button>
+                <p>Not a member yet? </p><a href="register.html">register</a>
+            </div>
+    </div>
+    <script>
+        document.getElementById('login_user').addEventListener("click", ()=>{
+            const element_login = ['username','password'];
+            let element_set = [];
+            element_login.forEach((item)=>{
+                if(document.getElementById(item).value != ''){
+                    element_set.push(document.getElementById(item).value);
+                }else{                
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'warning',
+                        title: "โปรดกรอกข้อมูลให้ครบ....นะครับ",
+                        showConfirmButton: false,
+                        timer: 1800
+                    });
+                }
+            });
+            ajaxPOST({'dataset':element_set});
+        });
+        ajaxPOST = (dataset) =>{
+          let xhttp = new XMLHttpRequest();
+          xhttp.open("POST", "user_login.php", true);
+          xhttp.setRequestHeader("Content-Type", "application/json");
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              let response = this.responseText;
+              if(response != ''){
+                  Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: "ลงชื่อเข้าใช้งานเรียบร้อย",
+                    showConfirmButton: false,
+                    timer: 1800
+                  }); 
+                    setTimeout(()=> {
+                        window.location.href='home.php';
+                    }
+                    ,2000); 
+                }else{
+                  Swal.fire({
+                    icon: 'info',
+                    title: 'ลงชื่อเข้าใช้งานไม่สำเร็จ'
+                  });
+                }
+            }
+          };
+          xhttp.send(JSON.stringify(dataset));
+        }
+    </script>
+</body>
+</html>
